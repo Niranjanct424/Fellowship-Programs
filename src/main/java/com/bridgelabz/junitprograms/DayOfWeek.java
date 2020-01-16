@@ -1,5 +1,4 @@
 package com.bridgelabz.junitprograms;
-
 import com.bridgelabz.utility.Util;
 
 public class DayOfWeek 

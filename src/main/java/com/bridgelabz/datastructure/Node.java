@@ -4,4 +4,11 @@ public class Node
 {
 	Node next;   //having address to the next node
 	String data; //holds the string data
+	
+//	Node(String d) 
+//	{
+//		data = d;
+//		next = null; 
+//		
+//	} 
 }

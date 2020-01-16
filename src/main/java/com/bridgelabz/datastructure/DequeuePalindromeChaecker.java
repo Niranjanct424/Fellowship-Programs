@@ -1,6 +1,6 @@
 package com.bridgelabz.datastructure;
 
-class DequeuePalindromeChaecker
+public class DequeuePalindromeChaecker
 { 
     static final int MAX = 100; 
      String[] arr; 

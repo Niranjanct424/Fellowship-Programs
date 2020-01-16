@@ -779,6 +779,7 @@ public class Util
     }
 	
 	//Programs for JUnit Testing
+	//day of week function
 	public static String dayOfWeek(int d1, int m1,int y1)
 	{
 		int x;
@@ -793,8 +794,73 @@ public class Util
 		return day;
 		
 	}
+	//monthly payment function
+	public static double monthlyPayment(double P,double Y,double R)
+	{
+		double r = R /(12*100);
+		double n = 12 * Y;
+		double payment = (P*r*Math.pow(1+r,n))/(Math.pow(1+r,n)-1);
+		// (p*r*Math.pow(1+r,t))/(Math.pow(1+r,t)-1);
+		
+		return payment;
+	}
 	
+	//temperature conversion function
+	//to celcius
+	public static double temperaturConversion(int tempFahr)
+	{
+		double Celc = ((tempFahr-32)*5)/9;
+		return Celc;
+	}
 	
+	//to Fahrenheit
+	public static double temperaturConversion1(int tempCel)
+	{
+		double Fare = (tempCel * 9/5)+32;
+		return Fare;
+	}
+	
+	//square root of non-negative number
+	public static double sqrtofnonnegnumber(double c)
+	{
+        double epsilon = 1.0e-15;  // relative error tolerance
+        double t = c;              // estimate of the square root of c
 
+        // repeatedly apply  Newton update step until desired precision is achieved
+        while (Math.abs(t - c/t) > epsilon*t) {
+            t = (c/t + t) / 2.0;
+        }
+        
+		return t;
+	}
+
+	//toBinary function
+	public static int[] toBinary(int num)
+    {
+		  int binary[] = new int[40];
+		     int index = 0;
+		     while(num > 0)
+		     {
+		       binary[index++] = num%2;
+		       num = num/2;
+		     }
+		     for(int i = index-1;i >= 0;i--)
+		     {
+		       System.out.print(binary[i]);
+		     }
+		     return binary;
+	}
+	
+	//isPower of two
+	public static boolean isPowerTwo(int n)
+	{
+		int a = (n & (n -1));
+		if(a == 0)
+		{
+			return true;
+		}
+		return false;
+	}
+			
 }
 

@@ -2,7 +2,7 @@ package com.bridgelabz.junitprograms;
 
 public class NoteReturnedByWendingMachine 
 {
-	public static void countCurrency(int amount) 
+	public static int[] countCurrency(int amount) 
     { 
         int[] notes = new int[]{ 2000, 500, 200, 100, 50, 20, 10, 5, 1 }; 
         int[] noteCounter = new int[9]; 
@@ -28,11 +28,16 @@ public class NoteReturnedByWendingMachine
                 System.out.println(notes[i] + " : "
                     + noteCounter[i]); 
             } 
-        } 
+        }
+		return noteCounter; 
     } 
         public static void main(String argc[])
         { 
             int amount = 75; 
-            countCurrency(amount); 
+           int[] a =  countCurrency(amount); 
+//           for (int i = 0; i <a.length; i++) 
+//           { 
+//           	System.out.print(a[i]+", ");
+//           }
         }
 }
