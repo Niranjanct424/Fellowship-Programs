@@ -1,5 +1,7 @@
 package com.bridgelabz.datastructure;
 
+//palindrome checker using array
+
 public class Palindrome 
 {
 	int front,rear,size;
