@@ -3,7 +3,6 @@
  *  @author  Niranjan.c.t
  *  @version 1.0
  *  @since   17-08-2017
- *
  ******************************************************************************/
 package com.bridgelabz.algorithm;
 

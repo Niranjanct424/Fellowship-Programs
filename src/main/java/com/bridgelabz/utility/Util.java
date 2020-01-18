@@ -643,8 +643,8 @@ public class Util
 		String s1 = new String(sarr1);
 		String s2 = new String(sarr2);
 		
-		System.out.println(s1);
-		System.out.println(s2);
+		//System.out.println(s1);
+		//System.out.println(s2);
 		if(s1.equals(s2))
 		{
 			return true;
@@ -655,11 +655,59 @@ public class Util
 		}
 	}
 	
+	/** Returns true if strings are anagram else returns false **/
+	public static boolean anagram2(String string1, String string2) {
+		if(string1.length() != string2.length()) {
+			return false;
+		}
+		char[] array1 = string1.toCharArray();
+		Arrays.sort(array1);
+		char[] array2 = string2.toCharArray();
+		Arrays.sort(array2);
+				
+		for(int i = 0; i < array1.length; i++) {
+			if(array1[i] != array2[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
 	
 	
-	public static int prime()
+	static int count = 0;
+	static int count1 = 0;
+	public static ArrayList<String> anagram1(String str1,String str2)
 	{
 		
+		ArrayList<String> arr = new ArrayList<String>();
+		ArrayList<String> arr1 = new ArrayList<String>();
+		
+		char[] sarr1 = str1.toLowerCase().toCharArray(); 
+		char[] sarr2 = str2.toLowerCase().toCharArray();
+		
+		Arrays.sort(sarr1);
+		Arrays.sort(sarr2);
+		
+		String s1 = new String(sarr1);
+		String s2 = new String(sarr2);
+		
+		//System.out.println(s1);
+		//System.out.println(s2);
+		if(s1.equals(s2))
+		{
+			//System.out.println(s1+" "+s2);
+			arr.add(s1);
+			System.out.print(s1+" ");
+			//count++;
+		}	
+		return arr;
+	}
+	
+	
+	public static int[] prime()
+	{	
+		int[] arr = new int[170];
+		int g = 0;
 		for(int i= 1; i<1000; i++)
 		{
 			int temp = 0;
@@ -673,10 +721,34 @@ public class Util
 			}
 				if(temp == 0)
 				{
-					System.out.print(" "+i);
+					arr[g] = i;
+					g++;
 				}
 		}
-			return 0;		
+			return arr;		
+	}
+	
+	public static String[] prime(int range) {
+		String[] array = new String[1000];
+		int position = 0;
+		for(int i = 2; i <= range; i++) {
+			boolean isPrime = true;
+			for(int j = 2; j <= i / 2; j++) {
+				if((i % j) == 0) {
+					isPrime = false;
+					break;
+				}
+			}
+			if(isPrime) {
+				array[position] = String.valueOf(i);
+				position++;
+			}
+		}
+		String[] returnArray = new String[position];
+		for(int k = 0; k < position; k++) {
+			returnArray[k] = array[k];
+		}
+		return returnArray;
 	}
 	
 	
@@ -737,7 +809,7 @@ public class Util
 		String message="";
 		try 
 		{ 
-			BufferedReader br = new BufferedReader(new FileReader("D:\\message.txt"));
+			BufferedReader br = new BufferedReader(new FileReader("/home/bridgelabz/Desktop/messgae.txt"));
 			while((line = br.readLine())!=null)
 			{
 				s=line;
