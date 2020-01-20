@@ -2,6 +2,7 @@ package com.bridgelabz.datastructure;
 
 import java.util.ArrayList;
 
+import com.bridgelabz.datastructure.PalindromeChecker.Node;
 import com.bridgelabz.utility.Util;
 
 public class PrimeAngramsjava 
@@ -60,8 +61,56 @@ public class PrimeAngramsjava
         } 
         return true; 
     } 
+    
+
+	Node head;
+	
+	 /* Linked list Node*/
+	 class Node 
+	 { 
+	     int data; 
+	     Node next; 
+	     Node(int d) 
+	     {
+	    	 data = d; 
+	    	 next = null; 
+	     } 
+	 } 
+	
+	//Display list data
+	public void show()
+	{
+		System.out.print("LinkedList elements : ");
+		Node temp = head;
+		while(temp != null)
+		{
+			System.out.print(temp.data+" ");
+			temp = temp.next;
+		}
+	}
+	//add Node at the end of the linked List
+	public void addRear(int newdata)
+	{
+		Node n = new Node(newdata);
+		
+		if(head == null)
+		{
+			head = new Node(newdata);
+			return;
+		}
+			n.next = null;
+			Node last = head;
+			while(last.next != null)
+
+				last = last.next;
+				last.next = n;
+				n.next = null;
+				return;
+	}
+    
 	public static void main(String[] args) 
 	{
+		PrimeAngramsjava p = new PrimeAngramsjava();
 		int a=0,b=0,c=1,d=0;
 		int[][] twodarr = new int[2][250];
 		ArrayList<Integer> an = new ArrayList<Integer>();
@@ -73,6 +122,7 @@ public class PrimeAngramsjava
 				  if(areAnagrams(array[i], array[j])) 
 				  {
 						an.add(array[i]);
+						p.addRear(array[i]);
 						b++;
 				  }	  
 				  else
@@ -81,7 +131,8 @@ public class PrimeAngramsjava
 				  }
 			}
 		}
-		System.out.println(an);
+		//System.out.println(an);
+		p.show();
 		
 	}
 }

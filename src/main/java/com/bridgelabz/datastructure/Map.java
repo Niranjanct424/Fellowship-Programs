@@ -1,71 +1,133 @@
 package com.bridgelabz.datastructure;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
+//Java program to demonstrate implementation of our 
+//own hash table with chaining for collision detection 
+import java.util.ArrayList; 
 
-class HashMap<K,V>
-{
-	// A node of chains 
-	K key;
-	V value;
-	
-	//reference to the next node
-	HashMap<K,V> next;
+//A node of chains 
+class HashNode<K, V> 
+{ 
+	K key; 
+	V value; 
 
-	//constructor
-	public HashMap(K key, V value) 
-	{
-		super();
-		this.key = key;
-		this.value = value;
-	}
-	
-}
-public class Map<K,V>
-{
-	//bucket to store the array elements
-	private LinkedList<HashMap<K,V>> linkedlist;
-	//capacity of linked list
-	private int capacity;
-	//size of the linked list
-	private int size;
-	
-	//constructor
+ // Reference to next node 
+ HashNode<K, V> next; 
+
+ // Constructor 
+ 	public HashNode(K key, V value) 
+ 	{ 
+ 		this.key = key; 
+ 		this.value = value; 
+ 	} 
+} 
+
+//Class to represent entire hash table 
+class Map<K, V> 
+{ 
+ // bucketArray is used to store array of chains 
+	private ArrayList<HashNode<K, V>> bucketArray; 
+
+ // Current capacity of array list 
+	private int numBuckets; 
+
+ // Current size of array list 
+	private int size; 
+
+ // Constructor (Initializes capacity, size and 
+ // empty chains. 
 	public Map() 
-	{
-		linkedlist = new LinkedList<HashMap<K,V>>();
-		capacity = 11;
-		size = 0;
-		
-		//created empty chains
-		for(int i=0; i<capacity; i++)
-		{
-			linkedlist.add(null);
-		}
-	}
-	
-	public int size() 
-	{ 
-		return size; 
+ { 
+     bucketArray = new ArrayList<>(); 
+     numBuckets = 10; 
+     size = 0; 
+
+     // Create empty chains 
+     for (int i = 0; i < numBuckets; i++) 
+         bucketArray.add(null); 
+ } 
+
+ public int size()
+ {
+ 	{ 
+	 	return size; 
 	} 
-    public boolean isEmpty()
-    { 
-    	return size() == 0; 
-    } 
-    
-    //hash function to find index
-    private int getIndex(K key)
-    {
-    	int hashcode = key.hashCode();
-    	int index = hashcode % capacity;
-		return index;
-    }
-    
+ }
+ public boolean isEmpty() 
+ { 
+	 return size() == 0; 
+ } 
+ 
 
+ // This implements hash function to find index 
+ // for a key 
+ private int getBucketIndex(K key) 
+ { 
+     int hashCode = key.hashCode(); 
+     int index = hashCode % numBuckets; 
+     return index; 
+ } 
 
-	public static void main(String[] args)
-	{
-		
-	}
+ // Adds a key value pair to hash 
+ public void add(K key, V value) 
+ { 
+     // Find head of chain for given key 
+     int bucketIndex = getBucketIndex(key); 
+     HashNode<K, V> head = bucketArray.get(bucketIndex); 
 
-}
+     // Check if key is already present 
+     while (head != null) 
+     { 
+         if (head.key.equals(key)) 
+         { 
+             head.value = value; 
+             return; 
+         } 
+         head = head.next; 
+     } 
+
+     // Insert key in chain 
+     size++; 
+     head = bucketArray.get(bucketIndex); 
+     HashNode<K, V> newNode = new HashNode<K, V>(key, value); 
+     newNode.next = head; 
+     bucketArray.set(bucketIndex, newNode); 
+
+     // If load factor goes beyond threshold, then 
+     // double hash table size 
+     if ((1.0*size)/numBuckets >= 0.7) 
+     { 
+         ArrayList<HashNode<K, V>> temp = bucketArray; 
+         bucketArray = new ArrayList<>(); 
+         numBuckets = 2 * numBuckets; 
+         size = 0; 
+         for (int i = 0; i < numBuckets; i++) 
+             bucketArray.add(null); 
+
+         for (HashNode<K, V> headNode : temp) 
+         { 
+             while (headNode != null) 
+             { 
+                 add(headNode.key, headNode.value); 
+                 headNode = headNode.next; 
+             } 
+         } 
+     } 
+ }
+ public static void main(String[] args) 
+ { 
+     Map<String, Integer>map = new Map<>(); 
+     map.add("this",1 ); 
+     map.add("coder",2 ); 
+     map.add("hi",4 ); 
+     map.add("hi",4 ); 
+     map.add("joy",5 ); 
+     System.out.println(map.size()); 
+     System.out.println(map.size()); 
+     System.out.println(map.isEmpty()); 
+     System.out.println(map.getBucketIndex("this"));
+     System.out.println(map.getBucketIndex("coder"));
+     System.out.println(map.getBucketIndex("joy"));
+     System.out.println(map.getBucketIndex("hi"));
+     System.out.println(map.getBucketIndex("hi"));
+ }
+ }
