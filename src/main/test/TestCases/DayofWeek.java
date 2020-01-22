@@ -14,7 +14,7 @@ class DayofWeek
 	void test()
 	{
 		
-		String actual = "Thursday";
+		String actual = "Wednesday";
 		String expected = Util.dayOfWeek(16, 01, 2020);
 		assertEquals("Checking Day of week ", expected, actual);
 	}

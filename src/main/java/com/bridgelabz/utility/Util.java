@@ -189,7 +189,7 @@ public class Util
 		}
 	}
 	
-	//Functional progamming
+	//Functional programming
 	public static int[][] TwoDarray(int rows,int coloums)
 	{
 		int[][] arr = new int[rows][coloums];
