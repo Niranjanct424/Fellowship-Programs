@@ -6,6 +6,7 @@ package com.bridgelabz.model;
 import java.io.Serializable;
 import java.util.Observable;
 
+@SuppressWarnings("serial")
 public class AddressBook extends Observable implements Serializable
 {
 	private String firstName;
@@ -16,11 +17,21 @@ public class AddressBook extends Observable implements Serializable
 	private String Zip;
 	private String phone_no;
 	
+	public static String getFileName() 
+	{
+		return fileName;
+	}
+
+	public static void setFileName(String fileName) {
+		AddressBook.fileName = fileName;
+	}
+	
+	private static String fileName;
+	
 		
 	public AddressBook()
 	{
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 

@@ -1,86 +1,97 @@
 package com.bridgelabz.serviceimplementation;
 
-
-import java.io.File;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 
 import com.bridgelabz.model.AddressBook;
-import com.bridgelabz.service.AddressBookInterface;
+import com.bridgelabz.service.AddressBookService;
 
-public class AddressBookImplementation implements AddressBookInterface
+public class AddressBookImplementation implements AddressBookService
 {
-	List<AddressBook> personAddressList = new ArrayList<>();
-	JSONObject jo = new JSONObject();
-	JSONArray ja = new JSONArray();
-	JSONParser jpr = new JSONParser();
+//	public AddressBookImplementation() 
+//	{
+//		AddressBook.setFileName("/BridgelabNiranjan/oops/com/bridgelabz/repositary/addressbook.json");
+//	}
 
+	AddressBook a = new AddressBook();
+	
+	JSONObject obj2 = new JSONObject();
+	@SuppressWarnings("unchecked")
 	@Override
-	public void addPerson(String firstName, String lastName, String address, String city, String state, String Zip,
-			String phoneNo) 
+	public void addPerson(String firstname, String lastname, String city, String state, String zip, String phone) 
 	{
+		int count = 0;
+		JSONObject obj1 = new JSONObject();
+		JSONArray arr = new JSONArray();
+		arr.add(firstname);
+		arr.add(lastname);
+		arr.add(city);
+		arr.add(state);
+		arr.add(zip);
+		arr.add(phone);
+		obj1.put(count++, arr);
+		
 		try 
 		{
-			AddressBook input = new AddressBook();
-			input.setFirstName(firstName);
-			input.setLastName(lastName);
-			input.setAddress(address);
-			input.setCity(city);
-			input.setCity(state);
-			input.setZip(Zip);
-			personAddressList.add(input);
-			jo.put("Person", input);
-			PrintWriter pw  = new PrintWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/person.json");
-			pw.write(jo.toJSONString());
+			BufferedWriter bw = new BufferedWriter(new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json"));
+			bw.write(obj1.toJSONString());
+			bw.newLine();
+			bw.flush();
+			bw.close();
 		} 
-		catch (Exception e) 
+		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-		
+		System.out.println(obj1);
 	}
 
 	@Override
-	public void printAll() 
+	public void editUser(String person) 
 	{
-		personAddressList.forEach(i -> {System.out.println(" FirstName : "+i.getFirstName()+" LastName : "+i.getLastName()+" Address : "+i.getAddress()+" City : "+i.getCity()+" State : "+i.getState()+" Zip : "+i.getZip()+" Phoneno : "+i.getPhone_no());});
-
+			
 	}
+
+	@Override
+	public void deleteUser(String person) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean search(String person) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void saveAs(String fileName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void addJson(String fileName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteJson(String fileName) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void selectJson() {
+		// TODO Auto-generated method stub
+		
+	}
+
 	
-	
-	@Override
-	public void removePerson(int index) 
-	{
-		
-	}
-
-	@Override
-	public void updatePerson(String firstName, String lastName, String address, String city, String state, String Zip,
-			String phoneno) {
-		
-	}
-
-	@Override
-	public void sortByName() {
-		
-	}
-
-	@Override
-	public void sortByZip() {
-
-		
-	}
-
-	
-
-	@Override
-	public void setFile(File file) {
-
-	}
 	
 }
