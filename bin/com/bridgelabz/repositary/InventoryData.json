@@ -2,36 +2,37 @@
   "Rice":[
     {
       "name":"Rajbhoga",
-      "weight":50,
-      "priceperKg":100
+      "weight":"50",
+      "priceperKg":"100"
     },
      {
       "name":"Rajkamal",
-      "weight":50,
-      "priceperKg":120
-    }],
+      "weight":"60",
+      "priceperKg":"120"
+   }],
     "Wheats":[
     {
       "name":"atta",
-      "weight":50,
-      "priceperKg":80
+      "weight":"50",
+      "priceperKg":"80"
     },
     {
       "name":"bran",
-      "weight":50,
-      "priceperKg":80
+      "weight":"50",
+      "priceperKg":"90"
     }
     ],
     "pulses":[
     {
       "name":"Green Gram",
-      "weight":5,
-      "priceperKg":150
-    },
+      "weight":"5",
+      "priceperKg":"75"
+     },
      {
       "name":"Red Gram",
-      "weight":5,
-      "priceperKg":1600
+      "weight":"5",
+      "priceperKg":"95"
     }
     ]
+    
 }

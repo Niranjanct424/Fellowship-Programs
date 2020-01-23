@@ -27,7 +27,7 @@ public class InventoryDataManagementModel
 	{
 		return priceperkg;
 	}
-	public void setPriceperkg(String priceperkg) 
+	public void setPriceperkg(String priceperkg)
 	{
 		this.priceperkg = priceperkg;
 	}
