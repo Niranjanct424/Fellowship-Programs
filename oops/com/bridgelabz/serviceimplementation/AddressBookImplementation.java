@@ -1,8 +1,10 @@
 package com.bridgelabz.serviceimplementation;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,34 +22,32 @@ public class AddressBookImplementation implements AddressBookService
 	AddressBook a = new AddressBook();
 	
 	JSONObject obj2 = new JSONObject();
+	int count = 0;
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addPerson(String firstname, String lastname, String city, String state, String zip, String phone) 
-	{
-		int count = 0;
-		JSONObject obj1 = new JSONObject();
-		JSONArray arr = new JSONArray();
-		arr.add(firstname);
-		arr.add(lastname);
-		arr.add(city);
-		arr.add(state);
-		arr.add(zip);
-		arr.add(phone);
-		obj1.put(count++, arr);
-		
-		try 
+	{	
+		try (FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json")) 
 		{
-			BufferedWriter bw = new BufferedWriter(new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json"));
-			bw.write(obj1.toJSONString());
-			bw.newLine();
-			bw.flush();
-			bw.close();
-		} 
+			JSONObject obj1 = new JSONObject();
+			JSONArray arr = new JSONArray();
+			arr.add(firstname);
+			arr.add(lastname);
+			arr.add(city);
+			arr.add(state);
+			arr.add(zip);  
+			arr.add(phone);
+			obj1.put(count++, arr);
+            file.write(obj1.toJSONString()+"\n");
+            file.flush();
+            System.out.println(obj1);
+ 
+        }
 		catch (IOException e) 
 		{
 			e.printStackTrace();
 		}
-		System.out.println(obj1);
+		
 	}
 
 	@Override
