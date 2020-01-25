@@ -310,7 +310,7 @@ public class Util
 			 int c2 = (int)(Math.random()*9);
 			 coupons =  c1+((int)(Math.random()*10)+1000+(int)(Math.random()*10)+1000+""+c2);
 			 
-			if(set.contains(coupons));
+			if(!set.contains(coupons));
 			{
 				set.add(coupons);
 			}

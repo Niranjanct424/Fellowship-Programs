@@ -1,3 +1,7 @@
+/*
+ * JSON Inventory Data Management of Rice, Pulses and Wheat
+ * readInventoryDataFile() implementation
+ */
 package com.bridgelabz.serviceimplementation;
 
 import java.io.FileReader;

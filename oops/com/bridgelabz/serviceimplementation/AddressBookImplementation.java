@@ -2,48 +2,49 @@ package com.bridgelabz.serviceimplementation;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-
-import com.bridgelabz.model.AddressBook;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import com.bridgelabz.service.AddressBookService;
 
 public class AddressBookImplementation implements AddressBookService
 {
-//	public AddressBookImplementation() 
-//	{
-//		AddressBook.setFileName("/BridgelabNiranjan/oops/com/bridgelabz/repositary/addressbook.json");
-//	}
 
-	AddressBook a = new AddressBook();
-	
-	JSONObject obj2 = new JSONObject();
+	JSONParser jsonParser = new JSONParser();
 	int count = 0;
 	@SuppressWarnings("unchecked")
 	@Override
 	public void addPerson(String firstname, String lastname, String city, String state, String zip, String phone) 
 	{	
-		try (FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json")) 
+		
+		try  
 		{
-			JSONObject obj1 = new JSONObject();
-			JSONArray arr = new JSONArray();
-			arr.add(firstname);
-			arr.add(lastname);
-			arr.add(city);
-			arr.add(state);
-			arr.add(zip);  
-			arr.add(phone);
-			obj1.put(count++, arr);
-            file.write(obj1.toJSONString()+"\n");
-            file.flush();
-            System.out.println(obj1);
- 
+			FileReader f1 = new FileReader("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json");
+			FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/book.json");
+			
+			 JSONObject personDetails = new JSONObject();
+			 Object obj = jsonParser.parse(f1);
+			 System.out.println(" obj "+obj);
+			 JSONArray personList = (JSONArray) obj;
+			 System.out.println("personList "+personList);
+			 personDetails.put("FirstName", firstname);
+			 personDetails.put("LasttName", firstname);
+			 personDetails.put("City", firstname);
+			 personDetails.put("State", firstname);
+			 personDetails.put("Zip", firstname);
+			 personDetails.put("PhoneNo", firstname);
+			 
+			 personList.add(personDetails);
+			 file.write(personList.toJSONString());
+	         file.flush();
         }
-		catch (IOException e) 
+		catch (IOException | ParseException e) 
 		{
 			e.printStackTrace();
 		}

@@ -1,3 +1,7 @@
+/*
+ * JSON Inventory Data Management of Rice, Pulses and Wheat
+ * Data variables name,weight,price per kilogram
+ */
 package com.bridgelabz.model;
 
 public class InventoryDataManagementModel 
