@@ -18,11 +18,11 @@ import com.bridgelabz.service.StockAccountServices;
 
 public class StockAccountServiceImplementaion implements StockAccountServices {
 	// json file reader
-	public static JSONObject json() {
+	public static JSONObject json() 
+	{
 		// first we create JSONparse
 		JSONParser jsonparse = new JSONParser();
-		try (FileReader fr = new FileReader(
-				"/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/stock.json");
+		try (FileReader fr = new FileReader("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/com/bridgelabz/repositary/stock.json");
 				BufferedReader br = new BufferedReader(fr)) {
 			return (JSONObject) jsonparse.parse(br);
 			// it will parse JSONObject
@@ -80,8 +80,5 @@ public class StockAccountServiceImplementaion implements StockAccountServices {
 				System.out.print("SharePrice "+ob.get("SharePrice")+"\t");
 				System.out.print("Total share value "+ob.get("Total Share value ")+"\t\n");
 			}
-
-		
-		
 	}
 }
