@@ -1,1 +1,9 @@
-{"Niranjan":[{"date":2020-01-27,"symbol":"orange","amount":5}]}
+{
+	"Niranjan": [
+		{
+			"date": 2020-01-27,
+			"symbol": "orange",
+			"amount": 5
+		}
+	]
+}
