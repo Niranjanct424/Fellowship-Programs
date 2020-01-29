@@ -30,7 +30,7 @@ public class InventaryManagerserviceImplementation implements InventaryManagerSe
 		try
 		{
 			
-			JSONObject obj = (JSONObject)parser.parse(new FileReader("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/repositary/InventoryData.json"));
+			JSONObject obj = (JSONObject)parser.parse(new FileReader("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/InventoryData.json"));
 			while(ch != 5)
 			{
 				System.out.println("    Enter 1 to Calculate the Total value of Rices ");

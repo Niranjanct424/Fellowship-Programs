@@ -32,7 +32,7 @@ public class InventaryDataManagementImplementation implements InventaryDataServi
 		try
 		{
 			
-			JSONObject obj = (JSONObject)parser.parse(new FileReader("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/repositary/InventoryData.json"));
+			JSONObject obj = (JSONObject)parser.parse(new FileReader("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/InventoryData.json"));
 			while(ch != 8)
 			{
 				System.out.println("    Enter 1 get the rice detials");

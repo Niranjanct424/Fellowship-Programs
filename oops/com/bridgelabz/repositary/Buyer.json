@@ -1,0 +1,35 @@
+{
+	"Niranjan_PVT_LTD": [
+		{
+			"PricePerShare": 100.0,
+			"Buyer_Name": "Niranjan_PVT_LTD",
+			"Trade_Initated ": "29-01-2020 18:07:19",
+			"Shares_Bought": 2,
+			"Company_Name": "Microsoft_Pvt_Ltd",
+			"Company_Symbol": "MICROSOFT",
+			"Total_Price": 200.0
+		}
+	],
+	"WEB_INFOTECH_PVT_LTD": [
+		{
+			"PricePerShare": 600.0,
+			"Buyer_Name": "WEB_INFOTECH_PVT_LTD",
+			"Trade_Initated ": "29-01-2020 18:05:06",
+			"Shares_Bought": 2,
+			"Company_Name": "Sony_Software_Center",
+			"Company_Symbol": "SONY",
+			"Total_Price": 1200.0
+		}
+	],
+	"BRIDGELABZ_PVT_LTD": [
+		{
+			"PricePerShare": 500.0,
+			"Buyer_Name": "BRIDGELABZ_PVT_LTD",
+			"Trade_Initated ": "29-01-2020 18:08:39",
+			"Shares_Bought": 6,
+			"Company_Name": "Wipro_InfoTech_Ltd",
+			"Company_Symbol": "WIPRO",
+			"Total_Price": 3000.0
+		}
+	]
+}
