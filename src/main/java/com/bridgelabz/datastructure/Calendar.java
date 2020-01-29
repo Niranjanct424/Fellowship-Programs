@@ -1,73 +1,119 @@
 package com.bridgelabz.datastructure;
 
-public class Calendar 
-{
-	public static int day(int month ,int day, int year)
-	{
-		int y = year - (14 - month) / 12;
-        int x = y + y/4 - y/100 + y/400;
-        int m = month + 12 * ((14 - month) / 12) - 2;
-        int d = (day + x + (31*m)/12) % 7;
-		return d;
-	}
-	public static boolean isLeapYear(int year)
-	{
-		if((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
-		return true;
-		
-		return false;
-	}
-	
-	public static void main(String[] args) 
-	{
-		int month = Integer.parseInt(args[0]);
-		int year = Integer.parseInt(args[1]);
-		
-		// leave empty so that months[1] = "January"
-		  String[] months = 
-			  {
-		            "",
-		            "January", "February", "March",
-		            "April", "May", "June",
-		            "July", "August", "September",
-		            "October", "November", "December"
-		        };
-		  
-		// days[i] = number of days in month i
-	        int[] days = {
-	            0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31
-	        };
-	        
-	        //if month is 2 check for leap year
-	        if (month == 2 && isLeapYear(year)) 
-	        {
-	        	days[month] = 29;
-	        }
-	     // starting day
-	        int d = day(month, 1, year);
-	        
-	     // print calendar header
-	        System.out.println("% java Calender "+d+" "+year+"   \n"
-	        		+ " "+ months[month] + " " + year);
-	        System.out.println(" S  M Tu  W Th  F  S");
-	        
+public class Calendar {
+	/**
+	 * @Array calendar initialize rows and columns which is to be displayed.
+	 * @Array month to initialize number of days in months.
+	 */
+	private int[][] calender = new int[5][7];
+	private int[] monthArray = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
 
-	        // print the calendar
-	        for (int i = 0; i < d; i++)
-	        	   System.out.print("   ");
-	        for (int i = 1; i <= days[month]; i++) 
-	        {
-	        	if(i < 10)
-	        	{
-	        		System.out.print("  "+i);
-	        	}
-	        	else
-	        	{
-	        		System.out.print(" "+i);
-	        	}
-	        	   
-	            if (((i + d) % 7 == 0) || (i == days[month]))
-	            	   System.out.println();
-	        }
+	/**
+	 * Initializing whole calendar with negative value for easier formatting.
+	 */
+	private void initialLinesOfCalender() {
+		for (int i = 0; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				calender[i][j] = -1;
+			}
+		}
 	}
+
+	/**
+	 * Display the formatted calendar.
+	 * 
+	 * @param year  as input integer parameter
+	 * @param month as input integer parameter
+	 */
+	private void display(int year, int month) {
+		System.out.println("	Sun	Mon	Tue	Wed	Thu	Fri	Sat");
+
+		for (int i = 0; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				if (calender[i][j] < 0 || calender[i][j] > monthArray[month - 1]) {
+					System.out.print("\t ");
+				} else if (calender[i][j] > 0) {
+					System.out.print("\t" + calender[i][j] + " ");
+				}
+			}
+			System.out.println("\t");
+		}
+	}
+
+	/**
+	 * checks the calendar assigned places and put formatted newly assigned data as
+	 * per starting day of week till end day.
+	 * 
+	 * @param startingDayPosition as integer input parameter
+	 */
+	private void putCalender(int startingDayPosition, int year) {
+//		System.out.println("starting" + startingDayPosition);
+		int startDay = 1;
+		/**
+		 * checks leap year and if found leap year then change to 2019.
+		 */
+		if (Util.isLeapYear(year)) {
+			monthArray[1] = 29;
+		}
+
+		/**
+		 * @code placing the values of firstLine of calendar.
+		 */
+		for (int i = startingDayPosition; i < calender[0].length; i++) {
+//			System.out.print(d1);
+			calender[0][i] = startDay++;
+		}
+		/**
+		 * @code placing the values of remaining lines of calendar
+		 */
+		for (int i = 1; i < calender.length; i++) {
+			for (int j = 0; j < calender[i].length; j++) {
+				calender[i][j] = startDay++;
+			}
+		}
+
+	}
+
+	/**
+	 * Takes month and year as parameter and return start day of week as integer
+	 * value.
+	 * 
+	 * @param m as month integer parameter
+	 * @param y as year integer parameter
+	 * @return Integer value
+	 */
+	private int dayOfWeek(int m, int y) {
+		int d = 1;
+		int y0 = y - (14 - m) / 12;
+		int x = y0 + y0 / 4 - y0 / 100 + y0 / 400;
+		int m0 = m + 12 * ((14 - m) / 12) - 2;
+		int d0 = (d + x + (31 * m0) / 12) % 7;
+		return d0;
+	}
+
+	/**
+	 * 
+	 * @param month as integer value.
+	 * @param year  as integer value.
+	 */
+	public void dispCalender(int month, int year) {
+		int startDayOfWeek = dayOfWeek(month, year);
+//		System.out.println("d -> " + startDayOfWeek);
+		initialLinesOfCalender();
+		putCalender(startDayOfWeek, year);
+		display(year, month);
+
+	}
+
+	public static void main(String[] args) {
+		Calendar calender = new Calendar();
+		System.out.println("Please enter month value in between range [1 -> 12]");
+		System.out.println("enter month in Integer value :");
+		int inputMonth = Util.scanner.nextInt();
+		System.out.println("enter year :");
+		int inputYear = Util.scanner.nextInt();
+		calender.dispCalender(inputMonth, inputYear);
+
+	}
+
 }

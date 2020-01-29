@@ -2,7 +2,11 @@ package com.bridgelabz.datastructure;
 
 public class NumberofBST  
 {  
-    //factorial() will calculate the factorial of given number  
+    /**
+     * factorial() will calculate the factorial of given number  
+     * @param num
+     * @return integer
+     */
     public int factorial(int num) 
     {  
         int fact = 1;  
@@ -19,7 +23,11 @@ public class NumberofBST
         }  
     }  
       
-    //numOfBST() will calculate the total number of possible BST by calculating Catalan Number for given key  
+    /**
+     * numOfBST() will calculate the total number of possible BST by calculating Catalan Number for given key  
+     * @param key
+     * @return
+     */
     public int numOfBST(int key) 
     {  
         int catalanNumber = factorial(2 * key)/(factorial(key + 1) * factorial(key));  
@@ -29,8 +37,10 @@ public class NumberofBST
     public static void main(String[] args) {  
           
     	NumberofBST  bt = new NumberofBST();  
-          
-        //Display total number of possible binary search tree with key 5  
-        System.out.println("Total number of possible Binary Search Trees with given key: " + bt.numOfBST(4));  
+    	 /**
+         * 
+         * Display total number of possible binary search tree with key 5  
+         */
+        System.out.println(bt.numOfBST(5)+"Total number of possible Binary Search Trees with given key: 5 => ");  
       }  
 }  

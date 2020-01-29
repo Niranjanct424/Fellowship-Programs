@@ -1,94 +1,113 @@
 package com.bridgelabz.datastructure;
 
-//stack implements LIFO
-public class Stack 
-{
-	Character[] stack = new Character[12];
-	int top = 0;
-	
-	//push function add elements into top of the stack
-	public void push(Character data)
-	{
-		stack[top] = data;
-		top++;
+
+import java.util.EmptyStackException;
+
+/**
+ * It is a linear data structure which is used to store data on the basis of
+ * LIFO => Last In First Out THis class has certain functions like length =>
+ * length of the list isEmpty => which checks whether the list is empty or not.
+ * push => insert a data to the list. pop => used to remove the last entered
+ * data from the list. peek => check the data entered at last. print => to get
+ * the list of all the data present in the list.
+ */
+public class Stack<G> {
+	private Node<G> top;
+	private int size;
+
+	/**
+	 * constructor for the stack class which initialize top and size.
+	 * 
+	 * @variable length it will fetch the length of the Stack
+	 * @variable top it is the reference type variable which points to top.
+	 */
+	public Stack() {
+		this.top = null;
+		this.size = 0;
 	}
-	
-	//removes the element from from a stack
-	public void pop()
-	{
-		top--;
-		stack[top] = null;
+
+	/**
+	 * checks whether the list is empty.
+	 * 
+	 * @return boolean value
+	 */
+	public boolean isEmpty() {
+		return size == 0;
 	}
-	
-	//This function displays the stack elements
-	public void stack()
-	{
-		for(Character c: stack)
-		{
-			System.out.println(c);
+
+	/**
+	 * return the list size.
+	 * 
+	 * @return integer value.
+	 */
+	public int size() {
+		return size;
+	}
+
+	/**
+	 * Node class object is created and allocated memory with data given by user and
+	 * its next points to null. objects reference variable points to top of the
+	 * list. reference variable top points to the object reference. after successful
+	 * insertion of the data to the list its length is incremented.
+	 * 
+	 * @param of generic type as input data
+	 */
+	public void push(G data) {
+		Node<G> newNode = new Node<G>(data);
+		newNode.next = top;
+		top = newNode;
+		size++;
+	}
+
+	/**
+	 * if the list is empty then it throws exception. if the list is not empty then
+	 * list's top data is shifted to a variable . list top reference points to its
+	 * next variable
+	 * 
+	 * @throws if the stack list is empty it throws EmptyStackException.
+	 * @return data of generic type.
+	 */
+	public G pop() {
+		if (isEmpty()) {
+			throw new EmptyStackException();
+		} else {
+			G removed = top.data;
+			top = top.next;
+			size--;
+			return removed;
 		}
 	}
-	
-	//number of elements exist in the stack
-	public void size()
-	{
-		System.out.println("size = "+top);
+
+	/**
+	 * if the list is not empty it will return the value which is pointed by top.
+	 * 
+	 * @return the data of generic type
+	 */
+	public G peak() {
+		if (!isEmpty()) {
+			return top.data;
+		} else {
+			throw new EmptyStackException();
+		}
 	}
-	
-	//checks stack is empty or having elements
-	public boolean isEmpty()
-	{
-		return top<=0;
-	}
-	
-	//top of the element in the stack
-	public Character peek()
-	{
-		return stack[top-1];
-	}
-	
-	public static void main(String[] args) 
-	{
-		Stack s = new Stack();
-		/*System.out.println(s.isEmpty());
-		s.push('a');
-		s.push('b');
-		s.push('c');
-		s.push('d');
-		s.pop();
-		System.out.println(s.isEmpty());
-		s.size();
-		s.stack();
-		System.out.println("peek = "+s.peek());*/
-		String str = "[{}]()}";
-		for(int i=0; i<str.length();i++)
-		{
-			if(str.charAt(i)=='{' || str.charAt(i)=='(' || str.charAt(i)=='[' )
-			{
-				//if match found push into the stack
-				s.push(str.charAt(i));
+
+	/**
+	 * if stack is not empty then a temporary reference variable points to top of
+	 * list. while loop iterate till the top points to null. while iterating it
+	 * prints the data which is pointed by its reference variable. reference
+	 * variable pointer is pointed to its next Node.
+	 */
+	public void print() {
+		if (isEmpty()) {
+			System.out.println("Empty Stack!");
+		} else {
+			Node<G> current = top;
+			while (current != null) {
+				System.out.print(current.data + " --> ");
+				current = current.next;
 			}
-			else if(!s.isEmpty() && (str.charAt(i) == '}' && s.peek() == '{') ||
-					 (str.charAt(i) == ')' && s.peek() == '(') ||
-					 (str.charAt(i) == ']' && s.peek() == '['))
-			        {  
-					//pop up if match found
-				       s.pop();
-			        }
-			  else
-			  {
-						s.push(str.charAt(i));
-			  }
+			System.out.println("null");
 		}
-		//if stack empty it's like balanced
-		if(s.isEmpty())
-		{
-			System.out.println("Balanced");
-		}
-		else
-		{
-			System.out.println("Not balanced");
-		}
-		
 	}
+
 }

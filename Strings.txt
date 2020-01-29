@@ -1,0 +1,2 @@
+hi,hello,buddy,go
+today,is,good,day
