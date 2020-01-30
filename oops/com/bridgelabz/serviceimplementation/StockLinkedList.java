@@ -8,8 +8,8 @@ import org.json.simple.JSONObject;
 
 public class StockLinkedList<T> {
 
-	private static final String PATH_STOCK = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Stock.json";
-	private static final String PATH_COMPANY = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Company.json";
+	private static final String PATH_STOCK = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Stock.json";
+	private static final String PATH_COMPANY = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Company.json";
 
 	LinkedList<Object> stockList = new LinkedList<Object>();
 	JSONArray arrayObject = new JSONArray();

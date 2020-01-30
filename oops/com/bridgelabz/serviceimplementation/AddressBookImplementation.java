@@ -25,8 +25,8 @@ public class AddressBookImplementation implements AddressBookService
 		
 		try  
 		{
-			FileReader f1 = new FileReader("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/repositary/book.json");
-			FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/BridgelabNiranjan/oops/repositary/book.json");
+			FileReader f1 = new FileReader("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/book.json");
+			FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/book.json");
 			
 			 JSONObject personDetails = new JSONObject();
 			 Object obj = jsonParser.parse(f1);

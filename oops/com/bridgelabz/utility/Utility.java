@@ -55,7 +55,7 @@ public class Utility {
 			file = new File(filename);
 			if (!file.exists())
 				file.createNewFile();
-			fileWriter = new FileWriter(file);
+			fileWriter  = new FileWriter(file);
 			fileWriter.write(jsonObject.toJSONString());
 			fileWriter.flush();
 		} catch (Exception e) {

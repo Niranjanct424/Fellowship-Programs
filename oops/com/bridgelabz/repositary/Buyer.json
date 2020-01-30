@@ -4,10 +4,10 @@
 			"PricePerShare": 100.0,
 			"Buyer_Name": "Niranjan_PVT_LTD",
 			"Trade_Initated ": "29-01-2020 18:07:19",
-			"Shares_Bought": 2,
+			"Shares_Bought": 0,
 			"Company_Name": "Microsoft_Pvt_Ltd",
 			"Company_Symbol": "MICROSOFT",
-			"Total_Price": 200.0
+			"Total_Price": 0.0
 		}
 	],
 	"WEB_INFOTECH_PVT_LTD": [
@@ -30,6 +30,28 @@
 			"Company_Name": "Wipro_InfoTech_Ltd",
 			"Company_Symbol": "WIPRO",
 			"Total_Price": 3000.0
+		}
+	],
+	"niru": [
+		{
+			"PricePerShare": 98.0,
+			"Buyer_Name": "niru",
+			"Trade_Initated ": "30-01-2020 12:35:19",
+			"Shares_Bought": 10,
+			"Company_Name": "Jonk",
+			"Company_Symbol": "jonkDeals",
+			"Total_Price": 980.0
+		}
+	],
+	"Niranjan": [
+		{
+			"PricePerShare": 98.0,
+			"Buyer_Name": "Niranjan",
+			"Trade_Initated ": "30-01-2020 12:27:04",
+			"Shares_Bought": 5,
+			"Company_Name": "Jonk",
+			"Company_Symbol": "jonkDeals",
+			"Total_Price": 490.0
 		}
 	]
 }

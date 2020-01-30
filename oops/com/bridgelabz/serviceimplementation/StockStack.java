@@ -7,8 +7,8 @@ import org.json.simple.JSONObject;
 import com.bridgelabz.utility.*;
 
 public class StockStack<T> {
-	private static final String PATH_BUYER = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Buyer.json";
-	private static final String PATH_SELLER = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Seller.json";
+	private static final String PATH_BUYER = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Buyer.json";
+	private static final String PATH_SELLER = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Seller.json";
 
 	Stack<Object> stack = new Stack<Object>();
 	JSONObject rootObject = new JSONObject();

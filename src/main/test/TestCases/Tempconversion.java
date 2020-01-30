@@ -22,4 +22,32 @@ class Tempconversion
 		double expected = 212.0;
 		assertEquals(expected, actual);
 	}
+	@Test
+	void test2() 
+	{
+		double actual = Util.temperaturConversion(70);
+		double expected = 21.0;
+		assertEquals(expected, actual);
+	}
+	@Test
+	void test3() 
+	{
+		double actual = Util.temperaturConversion1(70);
+		double expected = 158.0;
+		assertEquals(expected, actual);
+	}
+	@Test
+	void test4() 
+	{
+		double actual = Util.temperaturConversion(41);
+		double expected = 5.0;
+		assertEquals(expected, actual);
+	}
+	@Test
+	void test5() 
+	{
+		double actual = Util.temperaturConversion1(41);
+		double expected = 105.0;
+		assertEquals(expected, actual);
+	}
 }

@@ -6,7 +6,7 @@ public class SquareRootofNonNegativeNumber
 {
 	public static void main(String[] args) 
 	{
-		double sqrt = Util.sqrtofnonnegnumber(100);
+		double sqrt = Util.sqrtofnonnegnumber(70);
 		System.out.println("sqrt of non-negative num "+sqrt);
 	}
 }

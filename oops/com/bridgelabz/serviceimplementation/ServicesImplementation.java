@@ -2,7 +2,6 @@ package com.bridgelabz.serviceimplementation;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import com.bridgelabz.model.BuyerModel;
@@ -12,10 +11,10 @@ import com.bridgelabz.utility.Utility;
 
 public class ServicesImplementation {
 	
-	private static final String PATH_STOCK = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Stock.json";
-	private static final String PATH_BUYER = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Buyer.json";
-	private static final String PATH_SELLER = "/home/user/eclipse-workspace/Oops/src/com/bridgeLabz/stock/repository/Seller.json";
-
+	private static final String PATH_STOCK = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Stock.json";
+	private static final String PATH_BUYER = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Buyer.json";
+	private static final String PATH_SELLER = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/Seller.json";
+	
 	JSONObject rootObject = new JSONObject();
 	JSONArray arrayItems = new JSONArray();
 	JSONObject object = new JSONObject();
@@ -24,12 +23,14 @@ public class ServicesImplementation {
 	SellerModel seller = new SellerModel();
 	LocalDateTime dateTime = LocalDateTime.now();
 	DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss");
-
+	
 	/**
 	 * define function to add details
-	 * 
+	 * com.bridgelabz.utility.Utility
+
 	 * @return JSONObject
 	 */
+	
 	@SuppressWarnings("unchecked")
 	public void addDetails() {
 		JSONObject jsonObject = new JSONObject();
@@ -147,7 +148,6 @@ public class ServicesImplementation {
 		long shares_Buy = numberOfShares(amount, price);
 		if (shares_Present >= shares_Buy) {
 				
-			
 			long left_Shares = shares_Present - shares_Buy;
 			indexObject.replace("NumberOfShares", shares_Present, left_Shares);
 			JSONArray inputArray = new JSONArray();

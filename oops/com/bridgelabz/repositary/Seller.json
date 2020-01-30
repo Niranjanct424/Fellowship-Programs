@@ -1,10 +1,10 @@
 {
-	"AMRESH_PVT_LTD": [
+	"Niranjan_PVT_LTD": [
 		{
 			"PricePerShare": 100.0,
-			"Buyer_Name": "Vishal",
-			"Shares_Sell": 2,
-			"Trade_Initated ": "29-01-2020 18:09:38",
+			"Buyer_Name": "nxy",
+			"Shares_Sell": 1,
+			"Trade_Initated ": "30-01-2020 12:39:48",
 			"Company_Name": "Microsoft_Pvt_Ltd",
 			"Company_Symbol": "MICROSOFT"
 		}
@@ -12,7 +12,7 @@
 	"BRIDGELABZ_PVT_LTD": [
 		{
 			"PricePerShare": 500.0,
-			"Buyer_Name": "Bikash",
+			"Buyer_Name": "niru",
 			"Shares_Sell": 2,
 			"Trade_Initated ": "29-01-2020 18:11:04",
 			"Company_Name": "Wipro_InfoTech_Ltd",

@@ -4,10 +4,6 @@
 		"NumberOfShares": 20
 	},
 	{
-		"Company_Name": "Microsoft_Pvt_Ltd",
-		"NumberOfShares": 24
-	},
-	{
 		"Company_Name": "Sony_Software_Center",
 		"NumberOfShares": 48
 	},
@@ -18,5 +14,9 @@
 	{
 		"Company_Name": "Wipro_InfoTech_Ltd",
 		"NumberOfShares": 32
+	},
+	{
+		"Company_Name": "Joy",
+		"NumberOfShares": 10
 	}
 ]

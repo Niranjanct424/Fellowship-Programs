@@ -33,5 +33,12 @@
 			"NumberOfShares": 32,
 			"Name": "Infosys_Software_Center"
 		}
+	],
+	"jonkDeals": [
+		{
+			"PricePerShares": 98.0,
+			"NumberOfShares": 60,
+			"Name": "Jonk"
+		}
 	]
 }

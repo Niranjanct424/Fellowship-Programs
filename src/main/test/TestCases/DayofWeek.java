@@ -13,9 +13,19 @@ class DayofWeek
 	@Test
 	void test()
 	{
+		String day ="Thursday";
+		int length = day.length();
+		int actual = length;
+		String result = Util.dayOfWeek(30, 01, 2020);
+		int expected = result.length();
+		assertEquals("Checking Day of week ", expected, actual);
+	}
+	@Test
+	void test1()
+	{
 		
-		String actual = "Wednesday";
-		String expected = Util.dayOfWeek(16, 01, 2020);
+		String actual = "Thursday";
+		String expected = Util.dayOfWeek(30, 01, 2020);
 		assertEquals("Checking Day of week ", expected, actual);
 	}
 }
