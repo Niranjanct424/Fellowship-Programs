@@ -8,10 +8,14 @@ public class FlipCoin
 	{
 		System.out.println("Enter how many time you want to Flip a Coin");
 		double number = Util.inputInteger();
-		double[] darr = Util.FlipCoin(number);
+		Util.FlipCoin(number);
 		System.out.println("FlipCoin results : ");
-		System.out.println("Head Percentage = "+darr[0]);
-		System.out.println("Tail Percentage = "+darr[1]);
+		Util  u = new Util();
+		u.getH();
+		u.getT();
+
+		System.out.println("Head Percentage = "+u.getH());
+		System.out.println("Tail Percentage = "+u.getT());
 	}
 }
 

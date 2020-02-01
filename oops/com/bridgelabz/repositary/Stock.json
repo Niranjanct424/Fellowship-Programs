@@ -27,6 +27,13 @@
 			"Name": "Wipro_InfoTech_Ltd"
 		}
 	],
+	"jack": [
+		{
+			"PricePerShares": 77.0,
+			"NumberOfShares": 88,
+			"Name": "Jakson"
+		}
+	],
 	"INFOSYS": [
 		{
 			"PricePerShares": 1000.0,

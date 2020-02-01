@@ -120,7 +120,7 @@ public class Queue<T> {
 	}
 
 	public StockByQueue[] getObject() {
-		StockByQueue objects[] = new StockByQueue[getSize()];
+		StockByQueue[] objects = new StockByQueue[getSize()];
 		int count = 0;
 		Node current = head;
 		while (current != null) {

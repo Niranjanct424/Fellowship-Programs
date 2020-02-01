@@ -1,9 +1,5 @@
 [
 	{
-		"Company_Name": "Tata_Consultancy_Services",
-		"NumberOfShares": 20
-	},
-	{
 		"Company_Name": "Sony_Software_Center",
 		"NumberOfShares": 48
 	},
@@ -18,5 +14,13 @@
 	{
 		"Company_Name": "Joy",
 		"NumberOfShares": 10
+	},
+	{
+		"Company_Name": "GrowingByMyself",
+		"NumberOfShares": 759
+	},
+	{
+		"Company_Name": "sacha",
+		"NumberOfShares": 579
 	}
 ]

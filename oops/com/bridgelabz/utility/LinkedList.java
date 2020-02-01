@@ -107,7 +107,7 @@ public class LinkedList<T> {
 			head = head.next;
 		} else {
 			while (current.next != null) {
-				if (current.data.equals(item)) {
+				if (current.data.equals(item)) { 
 					System.out.println("Removed :" + current.data);
 					prev.next = current.next;
 					return;

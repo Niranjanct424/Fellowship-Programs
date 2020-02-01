@@ -4,7 +4,7 @@ package com.bridgelabz.controller;
 import com.bridgelabz.utility.Utility;
 import com.bridgelabz.serviceimplementation.ServicesImplementation;
 
-public class Controller {
+public class StockAcc {
 
 	// Main method
 	public static void main(String[] args) {

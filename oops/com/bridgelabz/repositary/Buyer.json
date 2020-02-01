@@ -26,10 +26,21 @@
 			"PricePerShare": 500.0,
 			"Buyer_Name": "BRIDGELABZ_PVT_LTD",
 			"Trade_Initated ": "29-01-2020 18:08:39",
-			"Shares_Bought": 6,
+			"Shares_Bought": 5,
 			"Company_Name": "Wipro_InfoTech_Ltd",
 			"Company_Symbol": "WIPRO",
-			"Total_Price": 3000.0
+			"Total_Price": 2500.0
+		}
+	],
+	"yadav": [
+		{
+			"PricePerShare": 77.0,
+			"Buyer_Name": "yadav",
+			"Trade_Initated ": "31-01-2020 09:48:25",
+			"Shares_Bought": 1,
+			"Company_Name": "Jakson",
+			"Company_Symbol": "jack",
+			"Total_Price": 77.0
 		}
 	],
 	"niru": [
