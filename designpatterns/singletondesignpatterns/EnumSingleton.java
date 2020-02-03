@@ -1,5 +1,11 @@
 package singletondesignpatterns;
 
-public class EnumSingleton {
+public enum EnumSingleton {
+
+    INSTANCE;
+    
+    public static void doSomething(){
+    	
+    }
 
 }
