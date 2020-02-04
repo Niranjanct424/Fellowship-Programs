@@ -1,65 +1,81 @@
 package com.bridgelabz.serviceimplementation;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-import org.json.simple.parser.ParseException;
+
+import com.bridgelabz.model.AddressBook;
 import com.bridgelabz.service.AddressBookService;
+import com.bridgelabz.utility.Utility;
 
-public class AddressBookImplementation implements AddressBookService
-{
+public class AddressBookImplementation implements AddressBookService {
+	AddressBook a = new AddressBook();
+	JSONObject globalobject = new JSONObject();
+	JSONArray globalarray = new JSONArray();
+	
+	static String book = "/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/book.json";
 
-	JSONParser jsonParser = new JSONParser();
-	int count = 0;
 	@SuppressWarnings("unchecked")
 	@Override
-	public void addPerson(String firstname, String lastname, String city, String state, String zip, String phone) 
-	{	
+	public void addPerson() {
 		
-		try  
-		{
-			FileReader f1 = new FileReader("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/book.json");
-			FileWriter file = new FileWriter("/home/bridgelabz/eclipse-workspace/bridgelabz/oops/com/bridgelabz/repositary/book.json");
-			
-			 JSONObject personDetails = new JSONObject();
-			 Object obj = jsonParser.parse(f1);
-			 System.out.println(" obj "+obj);
-			 JSONArray personList = (JSONArray) obj;
-			 System.out.println("personList "+personList);
-			 personDetails.put("FirstName", firstname);
-			 personDetails.put("LasttName", firstname);
-			 personDetails.put("City", firstname);
-			 personDetails.put("State", firstname);
-			 personDetails.put("Zip", firstname);
-			 personDetails.put("PhoneNo", firstname);
-			 
-			 personList.add(personDetails);
-			 file.write(personList.toJSONString());
-	         file.flush();
-        }
-		catch (IOException | ParseException e) 
-		{
-			e.printStackTrace();
-		}
+		 globalobject= Utility.readDetails(book);
+		
+		System.out.println("Enter person detials ");
+		System.out.println("Enter person firstname");
+		a.setFirstName(Utility.next());
+		System.out.println("Enter person lastname");
+		a.setLastName(Utility.next());
+		System.out.println("Enter person city");
+		a.setCity(Utility.next());
+		System.out.println("Enter person state");
+		a.setState(Utility.next());
+		System.out.println("Enter person zip");
+		a.setZip(Utility.next());
+		System.out.println("Enter person phoneno");
+		a.setPhone_no(Utility.next());
+		
+		JSONObject obj1 = new JSONObject();
+		JSONArray array = new JSONArray();
+
+		
+		obj1.put("firstname", a.getFirstName());
+		obj1.put("lastname", a.getLastName());
+		obj1.put("city",a.getCity());
+		obj1.put("state",a.getState() );
+		obj1.put("zip",a.getZip());
+		obj1.put("phone",a.getPhone_no());
+		globalobject.put(a.getFirstName(), obj1);
+		
+		Utility.writeToFile(globalobject, book);	
+		
 		
 	}
 
-	public void editUser(String person) 
-	{
-			
+	@Override
+	public void editUser(String person) {
+		JSONObject index = new JSONObject();
+		if(globalobject.containsKey(person))
+		{
+			index = (JSONObject) globalobject.get(person);
+			index.get(0);
+			index.replace(person, "f", "fffff");
+		}
+
 	}
 
 	@Override
 	public void deleteUser(String person) {
-		// TODO Auto-generated method stub
-		
+		JSONObject userobj = Utility.readDetails(book);
+		if(userobj.containsKey(person))
+		{
+			System.out.println("person found");
+			JSONObject delete = (JSONObject) globalobject.get(person);
+			globalobject.remove(delete.get(0));
+		}
+		else
+		{
+			System.out.println("person not found");
+		}
 	}
 
 	@Override
@@ -71,27 +87,25 @@ public class AddressBookImplementation implements AddressBookService
 	@Override
 	public void saveAs(String fileName) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void addJson(String fileName) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void deleteJson(String fileName) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 	@Override
 	public void selectJson() {
 		// TODO Auto-generated method stub
-		
+
 	}
 
-	
-	
 }

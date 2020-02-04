@@ -139,7 +139,7 @@ public class Utility {
 			objectFile = (JSONObject) parser.parse(string);
 			return objectFile;
 		} catch (Exception e) {
-			System.out.println("Thank You !!");
+			//System.out.println("Thank You !!");
 		}
 		return null;
 
