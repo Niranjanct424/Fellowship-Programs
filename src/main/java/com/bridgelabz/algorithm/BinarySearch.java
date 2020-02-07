@@ -3,7 +3,12 @@ import com.bridgelabz.utility.Util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-
+/**
+ * 
+ * @author Niranjan 
+ * Reads data from file & searchs the word
+ *
+ */
 public class BinarySearch 
 {
 	public static void main(String[] args) 
